@@ -26,6 +26,6 @@ public class AjaxResult<T> {
     }
 
     public static <N> AjaxResult<N> fail(ExceptionEnum e) {
-       return fail(e.getErrorCode(), e.getErrorMsg());
+        return fail(e.getErrorCode(), e.getErrorMsg());
     }
 }

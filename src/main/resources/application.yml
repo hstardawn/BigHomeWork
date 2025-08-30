@@ -1,5 +1,19 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: BigHomeWork
-server:
-  port: 8080
+
+  datasource:
+    url: jdbc:mysql://1.94.243.65:3306/bighomework?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: remote_user
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  data:
+    redis:
+      host: 1.94.243.65
+      port: 6379
+      database: 0
+      password: 123456

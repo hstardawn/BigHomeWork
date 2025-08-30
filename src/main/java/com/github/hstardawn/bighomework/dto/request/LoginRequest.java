@@ -1,29 +1,20 @@
 package com.github.hstardawn.bighomework.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Setter
-@Getter
+@Data
 @AllArgsConstructor
-public class RegisterRequest {
-    @NotBlank
+public class LoginRequest {
     @Size(max = 20)
+    @NotBlank
     @Pattern(regexp = "^[0-9]+$")
     private String username;
 
     @NotBlank
-    private String name;
-
-    @NotBlank
     @Size(min = 8, max = 16)
     private String password;
-
-    @NotNull
-    private int userType;
 }

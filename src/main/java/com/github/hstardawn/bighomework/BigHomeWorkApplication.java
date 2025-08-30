@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan
+@MapperScan("com.github.hstardawn.bighomework.mapper")
 public class BigHomeWorkApplication {
 
     public static void main(String[] args) {
