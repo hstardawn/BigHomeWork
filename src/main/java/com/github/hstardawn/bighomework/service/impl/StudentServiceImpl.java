@@ -29,12 +29,11 @@ import static com.github.hstardawn.bighomework.constant.RedisKeyConstant.POST_LI
 @RequiredArgsConstructor
 public class StudentServiceImpl implements StudentService {
 
-    @Resource
-    private RedisTemplate<String, Object> redisTemplate;
-
     private final PostMapper postMapper;
     private final UserMapper userMapper;
     private final ReportMapper reportMapper;
+    @Resource
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Override
     public void publishPost(String content, Integer userId) {
