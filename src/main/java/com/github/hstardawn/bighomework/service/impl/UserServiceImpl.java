@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
 
         User user = userMapper.selectOne(userQueryWrapper);
         if (user == null) {
-            throw new ApiException(ExceptionEnum.USER_NOT_FOUND);
+            throw new ApiException(ExceptionEnum.RESOURCE_NOT_FOUND);
         }
 
         if (!user.getPassword().equals(password)) {

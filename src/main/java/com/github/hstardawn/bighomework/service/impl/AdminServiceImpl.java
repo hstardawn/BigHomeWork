@@ -11,7 +11,6 @@ import com.github.hstardawn.bighomework.mapper.PostMapper;
 import com.github.hstardawn.bighomework.mapper.ReportMapper;
 import com.github.hstardawn.bighomework.mapper.UserMapper;
 import com.github.hstardawn.bighomework.service.AdminService;
-import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +19,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class AdminServiceImpl implements AdminService {
-    @Resource
-
     private final PostMapper postMapper;
     private final UserMapper userMapper;
     private final ReportMapper reportMapper;
@@ -30,7 +27,7 @@ public class AdminServiceImpl implements AdminService {
     public List<GetUncheckPost> getUncheckPosts(Integer userId) {
         User user = userMapper.selectById(userId);
         if (user == null) {
-            throw new ApiException(ExceptionEnum.USER_NOT_FOUND);
+            throw new ApiException(ExceptionEnum.RESOURCE_NOT_FOUND);
         }
         if (user.getUserType() != 2) {
             throw new ApiException(ExceptionEnum.PERMISSION_NOT_ALLOWED);
@@ -59,7 +56,7 @@ public class AdminServiceImpl implements AdminService {
     public void checkReport(Integer userId, Integer reportId, Integer approval) {
         User user = userMapper.selectById(userId);
         if (user == null) {
-            throw new ApiException(ExceptionEnum.USER_NOT_FOUND);
+            throw new ApiException(ExceptionEnum.RESOURCE_NOT_FOUND);
         }
         if (user.getUserType() != 2) {
             throw new ApiException(ExceptionEnum.PERMISSION_NOT_ALLOWED);
@@ -74,15 +71,10 @@ public class AdminServiceImpl implements AdminService {
             throw new ApiException(ExceptionEnum.REPORT_ALREADY_CHECKED);
         }
 
-        if (approval == 1) {
-            report.setStatus(2);
-            reportMapper.updateById(report);
-        } else if (approval == 2) {
-            report.setStatus(1);
-            reportMapper.updateById(report);
+        report.setStatus(approval);
+        reportMapper.updateById(report);
+        if (approval == 2) {
             postMapper.deleteById(report.getReporterId());
-        } else {
-            throw new ApiException(ExceptionEnum.INVALID_PARAMETER);
         }
     }
 }

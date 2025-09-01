@@ -1,21 +1,21 @@
-package com.github.hstardawn.bighomework.controlloer;
+package com.github.hstardawn.bighomework.controller;
 
 import com.github.hstardawn.bighomework.dto.request.CheckReportRequest;
 import com.github.hstardawn.bighomework.dto.response.GetUncheckPost;
 import com.github.hstardawn.bighomework.dto.response.GetUncheckPostList;
 import com.github.hstardawn.bighomework.result.AjaxResult;
 import com.github.hstardawn.bighomework.service.AdminService;
-import jakarta.annotation.Resource;
-import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin")
 @Slf4j
-public class AdminCenter {
+public class AdminController {
     @Resource
     private AdminService adminService;
 

@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 /**
  * @TableName post
  */
+@TableName(value = "post")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,6 +32,4 @@ public class Post {
 
     @TableLogic
     private Integer deletedAt;
-
-    private Integer likes;
 }

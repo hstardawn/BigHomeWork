@@ -1,4 +1,4 @@
-package com.github.hstardawn.bighomework.controlloer;
+package com.github.hstardawn.bighomework.controller;
 
 import com.github.hstardawn.bighomework.dto.request.*;
 import com.github.hstardawn.bighomework.dto.response.GetReportResultListResponse;
@@ -7,11 +7,11 @@ import com.github.hstardawn.bighomework.dto.response.PostElementsResponse;
 import com.github.hstardawn.bighomework.dto.response.PostListResponse;
 import com.github.hstardawn.bighomework.result.AjaxResult;
 import com.github.hstardawn.bighomework.service.StudentService;
-import jakarta.annotation.Resource;
-import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +19,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/student")
 @Slf4j
-public class StudentCenter {
+public class StudentController {
     @Resource
     private StudentService studentService;
 

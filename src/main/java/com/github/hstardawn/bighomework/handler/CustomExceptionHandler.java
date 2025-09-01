@@ -15,5 +15,4 @@ public class CustomExceptionHandler {
     public AjaxResult<Object> handleValidateException(ApiException e) {
         return AjaxResult.fail(e.getErrorCode(), e.getMessage());
     }
-
 }

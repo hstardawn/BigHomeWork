@@ -1,17 +1,18 @@
-package com.github.hstardawn.bighomework.controlloer;
+package com.github.hstardawn.bighomework.controller;
 
 import com.github.hstardawn.bighomework.dto.request.LoginRequest;
 import com.github.hstardawn.bighomework.dto.request.RegisterRequest;
 import com.github.hstardawn.bighomework.dto.response.LoginResponse;
 import com.github.hstardawn.bighomework.result.AjaxResult;
 import com.github.hstardawn.bighomework.service.UserService;
-import jakarta.annotation.Resource;
-import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/user")
@@ -30,7 +31,6 @@ public class UserController {
 
     @PostMapping("/login")
     public AjaxResult<LoginResponse> login(@Valid @RequestBody LoginRequest loginData) {
-        LoginResponse response = userService.login(loginData.getUsername(), loginData.getPassword());
-        return AjaxResult.success(response);
+        return AjaxResult.success(userService.login(loginData.getUsername(), loginData.getPassword()));
     }
 }
