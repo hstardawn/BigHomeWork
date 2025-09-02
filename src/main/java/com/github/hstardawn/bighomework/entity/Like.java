@@ -6,7 +6,7 @@ import lombok.Data;
 /**
  * @TableName like
  */
-@TableName(value = "like")
+@TableName(value = "`like`")
 @Data
 public class Like {
     private Integer id;
