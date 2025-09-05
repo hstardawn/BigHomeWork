@@ -95,6 +95,7 @@ public class StudentServiceImpl implements StudentService {
                 .reporterId(postId)
                 .reason(reason)
                 .userId(userId)
+                .status(0)
                 .build();
 
         reportMapper.insert(reportClass);

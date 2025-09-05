@@ -6,7 +6,7 @@ spring:
     name: BigHomeWork
 
   datasource:
-    url: jdbc:mysql://1.94.243.65:3306/bighomework?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://1.94.243.65:3306/hw?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: remote_user
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver

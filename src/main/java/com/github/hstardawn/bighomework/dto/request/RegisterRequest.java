@@ -1,5 +1,6 @@
 package com.github.hstardawn.bighomework.dto.request;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,5 +27,6 @@ public class RegisterRequest {
     private String password;
 
     @NotNull
+    @JsonProperty("user_type")
     private int userType;
 }
