@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 @Setter
 @Getter
@@ -28,5 +25,7 @@ public class RegisterRequest {
 
     @NotNull
     @JsonProperty("user_type")
+    @Min(1)
+    @Max(2)
     private int userType;
 }
