@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -41,6 +42,9 @@ public class AdminServiceImpl implements AdminService {
         return reports.stream().map(
                 report -> {
                     Post post = postMapper.selectById(report.getReporterId());
+                    if (post == null) {
+                        return null;
+                    }
 
                     return GetUncheckPost.builder()
                             .id(report.getId())
@@ -49,7 +53,7 @@ public class AdminServiceImpl implements AdminService {
                             .content(post.getContent())
                             .reason(report.getReason())
                             .build();
-                }).toList();
+                }).filter(Objects::nonNull).toList();
     }
 
     @Override
